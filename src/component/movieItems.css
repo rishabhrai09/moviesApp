@@ -1,0 +1,10 @@
+.main{
+    display: flex;
+    flex-direction: row;
+    align-items: initial;
+}
+.mr{
+    margin-right: 81px;
+    margin-bottom: 400px;
+    
+}

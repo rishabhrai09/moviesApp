@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import {FormControl,Form,FormGroup,Button ,FormLabel} from 'react-bootstrap';
 import { API_KEY } from '../secretkey';
+import {connect} from 'react-redux'
+import {movies} from '../actions/actions';
+import {bindActionCreators} from 'redux'
 class SearchInput extends Component{
     state={
         query:''
@@ -10,8 +13,10 @@ class SearchInput extends Component{
         fetch(url,{
             method:"GET"
         }).then(respose=>respose.json())
-        .then(result=>console.log(result))
+        .then(resultObj=>this.props.movies(resultObj.results))
     }
+
+    
     render(){
         return(
             <div className="row text-center" >
@@ -28,8 +33,14 @@ class SearchInput extends Component{
                { ' ' } &nbsp;
                <Button onClick={()=>{this.search()}} variant="success">Serach</Button>
            </Form>
+           
             </div>
         )
     }
 }
-export default SearchInput 
+
+const mapDispatchToProps=dispatch=>{
+    return bindActionCreators({movies},dispatch)
+}
+
+export default connect(null,mapDispatchToProps)(SearchInput) 
