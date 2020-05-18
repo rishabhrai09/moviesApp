@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './movieItems.css';
 import { connect } from 'react-redux';
-import {favourite} from '../actions/actions'
+import {favourite,RemoveFavourite} from '../actions/actions'
 import { bindActionCreators } from 'redux';
 const urlcompo='https://image.tmdb.org/t/p/w600_and_h900_bestv2/'
 
@@ -17,6 +17,10 @@ class MoviesItems extends Component{
         this.setState({favourite:!this.state.favourite})
         this.props.favourite(this.props.movie)
     }
+    removefav(){
+        this.setState({favourite:!this.state.favourite})
+        this.props.RemoveFavourite(this.props.movie)
+    }
     displayfav(){
         if(!this.state.favourite){
 return <svg className="bi bi-heart" onClick={()=>this.addToFav()} width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -24,7 +28,7 @@ return <svg className="bi bi-heart" onClick={()=>this.addToFav()} width="1em" he
 </svg>
 
         }else{
-             return <svg className="bi bi-heart-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+             return <svg className="bi bi-heart-fill"  onClick={()=>this.removefav()} width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
              <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" clipRule="evenodd"/>
            </svg>
 
@@ -46,7 +50,7 @@ return <svg className="bi bi-heart" onClick={()=>this.addToFav()} width="1em" he
         <p className="card-text">Ratings- <span className="badge badge-default"><svg style={{marginBottom:'2px'}} className="bi bi-star" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
 </svg>{movie.popularity}</span></p>
-        <span>{this.displayfav()}</span>
+        <span>{this.props.showButton? this.displayfav():null}</span>
   </div>
 </div>
 
@@ -57,6 +61,6 @@ return <svg className="bi bi-heart" onClick={()=>this.addToFav()} width="1em" he
     }
 }
 const mapDisptachToprops=dispatch=>{
-    return bindActionCreators({favourite},dispatch)
+    return bindActionCreators({favourite,RemoveFavourite},dispatch)
 }
 export default connect(null,mapDisptachToprops)(MoviesItems)

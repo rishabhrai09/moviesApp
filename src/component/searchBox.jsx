@@ -3,6 +3,7 @@ import {FormControl,Form,FormGroup,Button ,FormLabel} from 'react-bootstrap';
 import { API_KEY } from '../secretkey';
 import {connect} from 'react-redux'
 import {movies} from '../actions/actions';
+
 import {bindActionCreators} from 'redux'
 class SearchInput extends Component{
     state={

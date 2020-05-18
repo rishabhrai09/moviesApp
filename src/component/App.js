@@ -1,6 +1,12 @@
 import React from 'react';
 import './App.css';
-import MoviesResult from './moviesResults'
+import MoviesResult from './moviesResults';
+import FavouriteMovie from './favouriteMovie';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom'
 function App() {
   return (
     <div className="container">
@@ -13,8 +19,14 @@ function App() {
        </div>
      </div>
      <div className="row">
-<MoviesResult/>
+   <Router>
+     <Switch>
+       <Route exact path="/" component={MoviesResult} />
+       <Route path="/fav" component={FavouriteMovie} />
+     </Switch>
+   </Router>
      </div>
+     
     </div>
   );
 }
