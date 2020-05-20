@@ -7,6 +7,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom'
+import { movies } from '../actions/actions';
 function App() {
   return (
     <div className="container">
@@ -27,7 +28,7 @@ function App() {
      </Switch>
    
      </div>
-     
+     <MoviesResult/>
      
     </div>
   );
