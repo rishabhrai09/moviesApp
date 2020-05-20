@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import MoviesResult from './moviesResults';
 import FavouriteMovie from './favouriteMovie';
+
 import {
   
   Switch,
@@ -18,14 +19,18 @@ function App() {
          All about movies love
        </p>
        </div>
+       
      </div>
      <div className="row">
+     <FavouriteMovie/>
+
+     </div>
+     <div className="row">
+       
      <MoviesResult/>
      
-     <Switch>
-       <Route exact path="/" component={MoviesResult} />
-       <Route exact path="/fav" component={FavouriteMovie} />
-     </Switch>
+   
+   
    
      </div>
    

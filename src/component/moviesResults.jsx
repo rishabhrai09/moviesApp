@@ -9,7 +9,7 @@ class MoviesResult extends Component{
         const {movies} =this.props;
         return(
             <div>
-<Link to="/fav">Favourite List</Link>
+
                 <hr/>
             <SearchInput/>
             <div>
