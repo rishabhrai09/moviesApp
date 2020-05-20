@@ -20,7 +20,7 @@ function App() {
        </div>
      </div>
      <div className="row">
-       
+     <MoviesResult/>
      
      <Switch>
        <Route exact path="/" component={MoviesResult} />
@@ -28,7 +28,7 @@ function App() {
      </Switch>
    
      </div>
-   <MoviesResult/>
+   
      
     </div>
   );
