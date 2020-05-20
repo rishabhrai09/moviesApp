@@ -28,7 +28,7 @@ function App() {
      </Switch>
    
      </div>
-   
+   <MoviesResult/>
      
     </div>
   );
