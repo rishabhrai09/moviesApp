@@ -2,7 +2,7 @@
   "name": "moviesapp",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://rishabhrai09/moviesApp",
+  "homepage": "https://rishabhrai09/moviesApp/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",

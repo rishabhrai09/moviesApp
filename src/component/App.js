@@ -7,7 +7,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom'
-import { movies } from '../actions/actions';
+
 function App() {
   return (
     <div className="container">
@@ -24,11 +24,11 @@ function App() {
      
      <Switch>
        <Route exact path="/" component={MoviesResult} />
-       <Route path="/fav" component={FavouriteMovie} />
+       <Route exact path="/fav" component={FavouriteMovie} />
      </Switch>
    
      </div>
-     <MoviesResult/>
+   
      
     </div>
   );
